@@ -1,4 +1,4 @@
-<!-- <form class="add-form" (ngSubmit)="onSubmit()">
+<form class="add-form" (ngSubmit)="onSubmit()">
     <div class="form-control">
       <label for="id">ID</label>
       <input
@@ -6,7 +6,7 @@
         name="id"
         [(ngModel)]="id"
         id="id"
-        placeholder="Add An engagment ID"
+        placeholder="Add An engagement ID"
       />
     </div>
     <div class="form-control">
@@ -16,7 +16,7 @@
         name="name"
         [(ngModel)]="name"
         id="name"
-        placeholder="Add An engagment Name"
+        placeholder="Add An engagement Name"
       />
     </div>
 
@@ -27,7 +27,7 @@
           name="description"
           [(ngModel)]="description"
           id="description"
-          placeholder="Add An engagment Description"
+          placeholder="Add An engagement Description"
         />
       </div>
 
@@ -39,7 +39,7 @@
           name="started"
           [(ngModel)]="started"
           id="started"
-          placeholder="Add An engagment Start Date"
+          placeholder="Add An engagement Start Date"
         />
       </div>
 
@@ -50,11 +50,11 @@
           name="ended"
           [(ngModel)]="ended"
           id="ended"
-          placeholder="Add An engagment End Date"
+          placeholder="Add An engagement End Date"
         />
       </div>
 
-      <div class="form-control">
+      <!-- <div class="form-control">
         <label for="employee">Employee</label>
         <input
           type="text"
@@ -63,20 +63,20 @@
           id="employee"
           placeholder="Add The Employee Name Working On This engagment"
         />
-        </div>
+        </div> -->
 
         <div class="form-control">
-            <label for="employeeid">Employeeid</label>
+            <label for="employee">Employee ID</label>
             <input
               type="text"
-              name="employeeid"
-              [(ngModel)]="employeeid"
+              name="employee"
+              [(ngModel)]="employee"
               id="employee"
-              placeholder="Add The Employee ID Working On This engagment"
+              placeholder="Add The Employee ID Working On This engagement"
             />
       </div>
 
-      <div class="form-control">
+      <!-- <div class="form-control">
         <label for="client">Client</label>
         <input
           type="text"
@@ -85,19 +85,19 @@
           id="client"
           placeholder="Add The Client Name Working On This engagment"
         />
-    </div>
+    </div> -->
 
     <div class="form-control">
-        <label for="clientid">Clientid</label>
+        <label for="client">Client ID</label>
         <input
           type="text"
-          name="clientid"
-          [(ngModel)]="clientid"
-          id="clientid"
-          placeholder="Add The Client ID Working On This engagment"
+          name="client"
+          [(ngModel)]="client"
+          id="client"
+          placeholder="Add The Client ID Working On This engagement"
         />
     </div>
 
-    <input type="submit" value="Save Engagment" class="btn btn-block" />
+    <input type="submit" value="Save Engagement" class="btn btn-block" />
   </form>
-   -->
+  

@@ -14,8 +14,8 @@ export class EditClientComponent implements OnInit {
 
   @Output() onEditClient: EventEmitter<IClient> = new EventEmitter();
   faedit = faEdit;
-  name: string;
   id: string;
+  name: string;
   // client: IClient;
   clients: IClient[] = [];
 
@@ -40,11 +40,10 @@ export class EditClientComponent implements OnInit {
 
     this.onEditClient.emit(updatedClient);
 
-
-    console.log(this.name)
     alert("Name Updated")
+    console.log(this.name)
     this.name = '';
-    this.id = '';
+    
   
   }
 

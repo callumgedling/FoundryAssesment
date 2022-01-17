@@ -26,6 +26,8 @@ import { DeleteEmployeeComponent } from './components/delete-employee/delete-emp
 import { ClientsButtonComponent } from './components/clients-button/clients-button.component';
 import { EmployeesButtonComponent } from './components/employees-button/employees-button.component';
 import { AddEngagementComponent } from './components/add-engagement/add-engagement.component';
+import { DeleteEngagementComponent } from './components/delete-engagement/delete-engagement.component';
+import { EngagementsComponent } from './components/engagements/engagements.component';
 
 
 
@@ -33,9 +35,10 @@ import { AddEngagementComponent } from './components/add-engagement/add-engageme
 
 export const appRoutes: Routes = [
   {path: '', component: ClientsComponent},
-  {path: 'edit/:id', component: EditClientComponent},
+  {path: 'edit/:id', component: UpdateClientComponent},
   {path: 'search/:searchTerm', component: ClientsComponent},
   {path: 'employees', component: EmployeesComponent},
+  {path: 'engagements', component: EngagementsComponent}
 ]
 
 @NgModule({
@@ -56,6 +59,8 @@ export const appRoutes: Routes = [
     ClientsButtonComponent,
     EmployeesButtonComponent,
     AddEngagementComponent,
+    DeleteEngagementComponent,
+    EngagementsComponent,
   ],
   imports: [
     BrowserModule,

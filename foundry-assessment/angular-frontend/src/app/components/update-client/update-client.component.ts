@@ -23,9 +23,9 @@ export class UpdateClientComponent implements OnInit {
 
 
   editClient(client: IClient){
-    console.log("getting to editClient")
     this.clientService.editClient(client).subscribe((client) => this.clients.push(client)),
     err => console.log('HTTP Error', err);
+
  
 }
 }

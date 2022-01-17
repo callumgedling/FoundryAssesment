@@ -1,0 +1,23 @@
+<h2>Engagements Page</h2>
+<app-clients-button></app-clients-button>
+<app-employees-button></app-employees-button>
+<app-add-engagement
+(onAddEngagement)="addEngagement($event)"></app-add-engagement>
+<div class="search-bar">
+<input class ="search-bar" type="text" [(ngModel)]="name" (input)="Search()"/>
+</div>
+
+<div class="table">
+    <div class="row_header">Engagement Name</div>
+    <div class="column"></div>
+    <div class="row" *ngFor= "let engagement of engagements">
+    <div><fa-icon (click)="goToEdit(engagement)" [ngStyle]="{'color': 'dark'}" [icon]="faEdit"></fa-icon> </div>
+    <div class="table-text-left">{{engagement.name}} </div>
+    <div class="table-text-right"><app-delete-engagement (onDeleteEngagement)="deleteEngagement(engagement)"></app-delete-engagement></div>
+    
+    </div>
+
+
+</div>
+
+
