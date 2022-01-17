@@ -1,0 +1,22 @@
+<h2>Client Page</h2>
+<app-clients-button></app-clients-button>
+<app-employees-button></app-employees-button>
+<app-add-client 
+(onAddClient)="addClient($event)"></app-add-client>
+<div class="search-bar">
+<input class ="search-bar" type="text" [(ngModel)]="name" (input)="Search()"/>
+</div>
+
+<div class="table">
+    <div class="row_header">Client Name</div>
+    <div class="row" *ngFor= "let client of clients">
+    <div><fa-icon (click)="goToEdit(client)" [ngStyle]="{'color': 'dark'}" [icon]="faEdit"></fa-icon> </div>
+    <div class="table-text-left">{{client.name}} </div>
+    <div class="table-text-right"><app-delete-client (onDeleteClient)="deleteClient(client)"></app-delete-client></div>
+    
+    </div>
+
+
+</div>
+
+

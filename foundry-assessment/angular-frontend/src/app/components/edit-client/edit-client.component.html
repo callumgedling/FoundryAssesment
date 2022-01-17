@@ -1,0 +1,16 @@
+<form class="add-form" (ngSubmit)="onSubmit()">
+    <div class="form-control">
+      <label for="name">Edit Client Name</label>
+      <input
+        type="text"
+        name="name"
+        [(ngModel)]="name"
+        id="name"
+        placeholder="Edit Client Name"
+      />
+    </div>
+    <input type="submit" value="Edit Client" class="btn btn-block" />
+  </form>  
+<a routerLink="/">Go Back</a> 
+
+

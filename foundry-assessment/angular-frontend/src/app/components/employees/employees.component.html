@@ -1,0 +1,23 @@
+<h2>Employee Page</h2>
+<app-clients-button></app-clients-button>
+<app-employees-button></app-employees-button>
+
+<app-add-employee 
+(onAddEmployee)="addEmployee($event)"></app-add-employee>
+
+<div class="search-bar">
+<input class ="search-bar" type="text" [(ngModel)]="name" (input)="Search()"/>
+</div>
+
+<div class="table">
+    <div class="row_header">Employee Name</div>
+    <div class="row" *ngFor= "let employee of employees">
+    <div class="table-text-left">{{employee.name}} </div>
+    <div class="table-text-right"><app-delete-employee (onDeleteEmployee)="deleteEmployee(employee)"></app-delete-employee></div>
+    
+    </div>
+
+
+</div>
+
+
