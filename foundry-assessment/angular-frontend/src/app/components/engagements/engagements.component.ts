@@ -49,9 +49,11 @@ export class EngagementsComponent implements OnInit {
   }
 
   goToEngagementClient(engagement: IEngagement){
-    console.log(engagement);
     this.router.navigateByUrl(`/engagement/client/${engagement.client}`)
-    console.log(engagement.client);
+  }
+
+  goToEngagementEmployee(engagement: IEngagement){
+    this.router.navigateByUrl(`/engagement/employee/${engagement.employee}`)
   }
 
   Search(){

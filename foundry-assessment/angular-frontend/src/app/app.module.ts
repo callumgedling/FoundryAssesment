@@ -35,7 +35,8 @@ import { EditEngagementsComponent } from './components/edit-engagements/edit-eng
 import { UpdateEngagementComponent } from './components/update-engagement/update-engagement.component';
 import { EngagementsByClientComponent } from './components/engagements-by-client/engagements-by-client.component';
 import { MyFilterPipe } from './my-filter.pipe';
-//import { UpdateEngagementComponent } from './components/update-engagement/update-engagement.component';
+import { EngagementsByEmployeeComponent } from './components/engagements-by-employee/engagements-by-employee.component';
+import { EmployeeFilterPipe } from './employee-filter.pipe';
 
 
 export const appRoutes: Routes = [
@@ -46,7 +47,8 @@ export const appRoutes: Routes = [
   {path: 'engagements', component: EngagementsComponent},
   {path: 'edit/employee/:id', component: UpdateEmployeeComponent},
   {path: 'edit/engagement/:id', component: UpdateEngagementComponent},
-  {path: 'engagement/client/:id', component: EngagementsByClientComponent}
+  {path: 'engagement/client/:id', component: EngagementsByClientComponent},
+  {path: 'engagement/employee/:id', component: EngagementsByEmployeeComponent}
 ]
 
 @NgModule({
@@ -75,6 +77,8 @@ export const appRoutes: Routes = [
     UpdateEngagementComponent,
     EngagementsByClientComponent,
     MyFilterPipe,
+    EngagementsByEmployeeComponent,
+    EmployeeFilterPipe,
     //UpdateEngagementComponent,
   ],
   imports: [

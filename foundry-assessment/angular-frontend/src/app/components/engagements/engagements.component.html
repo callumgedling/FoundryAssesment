@@ -16,6 +16,7 @@
             <th scope="col">Start Date</th>
             <th scope="col">End Date</th>
             <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -23,10 +24,11 @@
             <th scope="row">{{engagement.name}}</th>
             <td>{{engagement.description}}</td>
             <td (click)="goToEngagementClient(engagement)">{{engagement.client}}</td>
-            <td> <a href="/">{{engagement.employee}} </a></td>
-            <td>{{engagement.started | date }} </td>
+            <td (click)="goToEngagementEmployee(engagement)">{{engagement.employee}}</td>
+            <td>{{engagement.started | date}} </td>
             <td>{{engagement.ended | date}}</td>
             <td><fa-icon (click)="goToEditEngagement(engagement)" [ngStyle]="{'color': 'dark'}" [icon]="faEdit"></fa-icon></td>
+            <td><app-delete-engagement (onDeleteEngagement)="deleteEngagement(engagement)"></app-delete-engagement></td>
         </tr>
     </tbody>
 </table>
