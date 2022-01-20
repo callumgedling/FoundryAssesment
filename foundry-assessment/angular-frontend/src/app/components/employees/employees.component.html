@@ -10,8 +10,9 @@
 </div>
 
 <div class="table">
-    <div class="row_header">Employee Name</div>
+    <div class="row-header">Employee Name</div>
     <div class="row" *ngFor= "let employee of employees">
+    <div><fa-icon (click)="goToEdit(employee)" [ngStyle]="{'color': 'dark'}" [icon]="faEdit"></fa-icon> </div>    
     <div class="table-text-left">{{employee.name}} </div>
     <div class="table-text-right"><app-delete-employee (onDeleteEmployee)="deleteEmployee(employee)"></app-delete-employee></div>
     

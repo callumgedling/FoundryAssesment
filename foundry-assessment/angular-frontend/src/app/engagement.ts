@@ -6,7 +6,6 @@ export interface IEngagement {
     started: Date;
     ended: Date;
     description: string;
-    
-    
+
 }
 

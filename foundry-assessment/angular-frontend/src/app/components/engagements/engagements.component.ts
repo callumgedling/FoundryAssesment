@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { EngagementService } from 'src/app/services/engagement.service';
 import { IEngagement } from '../../engagement';
-import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faEdit, faStop } from '@fortawesome/free-solid-svg-icons';
 import  { Router, ActivatedRoute } from '@angular/router';
 import { Params } from '@angular/router';
 
@@ -15,16 +15,18 @@ export class EngagementsComponent implements OnInit {
   engagements: IEngagement[] = [];
   faTimes = faTimes;
   faEdit = faEdit;
+  faStop = faStop;
   engagement: IEngagement;
   searchTerm: string;
   name: string;
+  current_date: Date = new Date();
+  test_date : Date = new Date("2019-01-31T00:00:00");
 
 
   constructor(private engagementService: EngagementService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.engagementService.getEngagements().subscribe((engagements: any[]) => (this.engagements = engagements));
-
   }
 
   addEngagement(engagement:IEngagement) {
@@ -35,13 +37,15 @@ export class EngagementsComponent implements OnInit {
     this.engagementService.deleteEngagement(engagement).subscribe(() => (this.engagements = this.engagements.filter(c => c.id !== engagement.id)));
   }
 
-  goToEdit(engagement: IEngagement){
-    console.log(engagement);
-    this.router.navigateByUrl(`/edit/${engagement.id}`)
+  endEngagement(engagement: IEngagement){
+    this.engagementService.endEngagement(engagement).subscribe((engagement) => this.engagements.push(engagement)),
+    err => console.log('HTTP Error', err);
   }
 
-  goToEmployees(){
-    this.router.navigateByUrl(`/`)
+  goToEditEngagement(engagement: IEngagement){
+    console.log(engagement);
+    this.router.navigateByUrl(`/edit/engagement/${engagement.id}`)
+    console.log(engagement.id);
   }
 
   Search(){

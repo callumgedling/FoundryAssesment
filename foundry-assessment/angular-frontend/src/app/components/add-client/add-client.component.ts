@@ -24,11 +24,7 @@ export class AddClientComponent implements OnInit {
   }
 
   onSubmit(){
-    if(!this.id){
-      alert("Please add an ID")
-      return;
-    }
-    else if(!this.name){
+    if (!this.name){
       alert("Please add a name")
       return;
     }

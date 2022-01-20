@@ -28,9 +28,12 @@ import { EmployeesButtonComponent } from './components/employees-button/employee
 import { AddEngagementComponent } from './components/add-engagement/add-engagement.component';
 import { DeleteEngagementComponent } from './components/delete-engagement/delete-engagement.component';
 import { EngagementsComponent } from './components/engagements/engagements.component';
-
-
-
+import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
+import { UpdateEmployeeComponent } from './components/update-employee/update-employee.component';
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+import { EditEngagementsComponent } from './components/edit-engagements/edit-engagements.component';
+import { UpdateEngagementComponent } from './components/update-engagement/update-engagement.component';
+//import { UpdateEngagementComponent } from './components/update-engagement/update-engagement.component';
 
 
 export const appRoutes: Routes = [
@@ -38,7 +41,9 @@ export const appRoutes: Routes = [
   {path: 'edit/:id', component: UpdateClientComponent},
   {path: 'search/:searchTerm', component: ClientsComponent},
   {path: 'employees', component: EmployeesComponent},
-  {path: 'engagements', component: EngagementsComponent}
+  {path: 'engagements', component: EngagementsComponent},
+  {path: 'edit/employee/:id', component: UpdateEmployeeComponent},
+  {path: 'edit/engagement/:id', component: UpdateEngagementComponent}
 ]
 
 @NgModule({
@@ -61,13 +66,19 @@ export const appRoutes: Routes = [
     AddEngagementComponent,
     DeleteEngagementComponent,
     EngagementsComponent,
+    EditEmployeeComponent,
+    UpdateEmployeeComponent,
+    EditEngagementsComponent,
+    UpdateEngagementComponent,
+    //UpdateEngagementComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     FontAwesomeModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BsDatepickerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

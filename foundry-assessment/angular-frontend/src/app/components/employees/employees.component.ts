@@ -35,6 +35,12 @@ export class EmployeesComponent implements OnInit {
     this.employeeService.deleteEmployee(employee).subscribe(() => (this.employees = this.employees.filter(c => c.id !== employee.id)));
   }
 
+  
+  goToEdit(employee: IEmployee){
+    console.log(employee);
+    this.router.navigateByUrl(`/edit/employee/${employee.id}`)
+  }
+
   Search(){
     if(this.name != ""){
       this.employees = this.employees.filter(res=>{

@@ -18,11 +18,6 @@ export class AddEngagementComponent implements OnInit {
   started: Date;
   ended: Date;
   description: string;
-
-  
-  
-
-
   subscription: Subscription;
   
 
@@ -35,11 +30,7 @@ export class AddEngagementComponent implements OnInit {
   }
 
   onSubmit(){
-    if(!this.id){
-      alert("Please add an ID")
-      return;
-    }
-    else if(!this.name){
+    if (!this.name){
       alert("Please add a name")
       return;
     }
@@ -52,14 +43,12 @@ export class AddEngagementComponent implements OnInit {
       started: this.started,
       ended: this.ended,
       description: this.description,
-   
-     
     };
 
     this.onAddEngagement.emit(newEngagement);
 
-    this.id = '';
-    this.name = '';
+    // this.id = '';
+    // this.name = '';
   }
 
 }

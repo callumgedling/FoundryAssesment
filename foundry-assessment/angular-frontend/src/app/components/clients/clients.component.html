@@ -8,7 +8,7 @@
 </div>
 
 <div class="table">
-    <div class="row_header">Client Name</div>
+    <div class="row-header">Client Name</div>
     <div class="row" *ngFor= "let client of clients">
     <div><fa-icon (click)="goToEdit(client)" [ngStyle]="{'color': 'dark'}" [icon]="faEdit"></fa-icon> </div>
     <div class="table-text-left">{{client.name}} </div>

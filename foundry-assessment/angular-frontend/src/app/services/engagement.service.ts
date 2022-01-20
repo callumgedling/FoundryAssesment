@@ -28,7 +28,21 @@ export class EngagementService {
     return this.http.post<IEngagement>(this.apiurl, engagement, httpOptions);
   }
 
+  editEngagement(engagement: IEngagement):Observable<IEngagement>{
+    const url = `${this.apiurl}/${engagement.id}/`;
+    console.log(engagement.ended)
+    return this.http.put<IEngagement>(url, engagement);
+  }
+
+  endEngagement(engagement: IEngagement):Observable<IEngagement>{
+    const url = `${this.apiurl}/${engagement.id}/end`;
+    console.log(engagement.ended)
+    return this.http.put<IEngagement>(url, engagement);
+  }
+
+
   deleteEngagement(engagement: IEngagement): Observable<IEngagement> {
+    
     const url = `${this.apiurl}/${engagement.id}`;
     return this.http.delete<IEngagement>(url);
   }
