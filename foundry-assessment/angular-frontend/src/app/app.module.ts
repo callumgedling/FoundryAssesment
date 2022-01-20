@@ -37,6 +37,7 @@ import { EngagementsByClientComponent } from './components/engagements-by-client
 import { MyFilterPipe } from './my-filter.pipe';
 import { EngagementsByEmployeeComponent } from './components/engagements-by-employee/engagements-by-employee.component';
 import { EmployeeFilterPipe } from './employee-filter.pipe';
+import { EngagementsButtonComponent } from './components/engagements-button/engagements-button.component';
 
 
 export const appRoutes: Routes = [
@@ -79,6 +80,7 @@ export const appRoutes: Routes = [
     MyFilterPipe,
     EngagementsByEmployeeComponent,
     EmployeeFilterPipe,
+    EngagementsButtonComponent,
     //UpdateEngagementComponent,
   ],
   imports: [
