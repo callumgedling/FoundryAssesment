@@ -34,7 +34,7 @@ export class EditEngagementsComponent implements OnInit {
     this.started = this.route.snapshot.params['started']
     this.description = this.route.snapshot.params['description']
 
-    console.log("in edit engagemnets fr: " + this.id)
+    console.log("in edit engagemnets fr: " + this.client)
   }
 
   onSubmit(){

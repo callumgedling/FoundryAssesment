@@ -1,0 +1,23 @@
+<h1>Engagements Involving Client: {{this.client}}</h1>
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Engagement Name</th>
+            <th scope="col">Engagement Description</th>
+            <th scope="col">Client</th>
+            <th scope="col">Employee</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let engagement of engagements | myfilter:filterargs" [ngStyle]="{'background-color': engagement.ended != null ? 'red' : 'green' }">
+            <th scope="row">{{engagement.name}}</th>
+            <td>{{engagement.description}}</td>
+            <td>{{engagement.client}}</td>
+            <td> {{engagement.employee}}</td>
+            <td>{{engagement.started | date }} </td>
+            <td>{{engagement.ended | date}}</td>
+        </tr>
+    </tbody>
+</table>

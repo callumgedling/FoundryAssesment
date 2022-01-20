@@ -48,6 +48,12 @@ export class EngagementsComponent implements OnInit {
     console.log(engagement.id);
   }
 
+  goToEngagementClient(engagement: IEngagement){
+    console.log(engagement);
+    this.router.navigateByUrl(`/engagement/client/${engagement.client}`)
+    console.log(engagement.client);
+  }
+
   Search(){
     if(this.name != ""){
       this.engagements = this.engagements.filter(res=>{

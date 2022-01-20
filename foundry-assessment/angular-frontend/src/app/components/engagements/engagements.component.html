@@ -22,12 +22,11 @@
         <tr *ngFor = "let engagement of engagements" [ngStyle]="{'background-color': engagement.ended != null ? 'red' : 'green' }">
             <th scope="row">{{engagement.name}}</th>
             <td>{{engagement.description}}</td>
-            <td>{{engagement.client}}</td>
-            <td>{{engagement.employee}}</td>
-            <td >{{engagement.started | date }} </td>
+            <td (click)="goToEngagementClient(engagement)">{{engagement.client}}</td>
+            <td> <a href="/">{{engagement.employee}} </a></td>
+            <td>{{engagement.started | date }} </td>
             <td>{{engagement.ended | date}}</td>
             <td><fa-icon (click)="goToEditEngagement(engagement)" [ngStyle]="{'color': 'dark'}" [icon]="faEdit"></fa-icon></td>
-       
         </tr>
     </tbody>
 </table>

@@ -19,39 +19,18 @@
           id="description"
           placeholder="Add An engagement Description"
         />
-      </div>
+    </div>
 
-      
     <div class="form-control">
-        <label for="started">Started</label>
+        <label for="employee">Employee ID</label>
         <input
-          type="datetime-local"
-          name="started"
-          [(ngModel)]="started"
-          id="started"
+          type="text"
+          name="employee"
+          [(ngModel)]="employee"
+          id="employee"
+          placeholder="Add The Employee ID Working On This engagement"
         />
-      </div>
-
-      <div class="form-control">
-        <label for="ended">Ended</label>
-        <input
-          type="date"
-          name="ended"
-          [(ngModel)]="ended"
-          id="ended"
-        />
-      </div>
-
-        <div class="form-control">
-            <label for="employee">Employee ID</label>
-            <input
-              type="text"
-              name="employee"
-              [(ngModel)]="employee"
-              id="employee"
-              placeholder="Add The Employee ID Working On This engagement"
-            />
-      </div>
+  </div>
 
 
     <div class="form-control">

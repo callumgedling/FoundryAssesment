@@ -1,4 +1,4 @@
-<button type="button" (click)="engagementEnded()">Engagement Ended</button>
+<button type="button" (click)="engagementEnded()">End Engagement</button>
 <form class="add-form" (ngSubmit)="onSubmit()">
   <div class="form-control">
     <label for="name">Edit Engagement Name</label>
@@ -16,24 +16,6 @@
         name="description"
         [(ngModel)]="description"
         id="description"
-      />
-    </div>
-    <div class="form-control">
-      <label for="name">Edit Client ID on Engagement</label>
-      <input
-        type="text"
-        name="client"
-        [(ngModel)]="client"
-        id="client"
-      />
-    </div>
-    <div class="form-control">
-      <label for="name">Edit Employee ID on Engagement</label>
-      <input
-        type="text"
-        name="employee"
-        [(ngModel)]="employee"
-        id="employee"
       />
     </div>
     <input type="submit" value="Edit Engagement" class="btn btn-block" />

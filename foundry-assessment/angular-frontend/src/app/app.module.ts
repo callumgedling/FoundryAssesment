@@ -33,6 +33,8 @@ import { UpdateEmployeeComponent } from './components/update-employee/update-emp
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import { EditEngagementsComponent } from './components/edit-engagements/edit-engagements.component';
 import { UpdateEngagementComponent } from './components/update-engagement/update-engagement.component';
+import { EngagementsByClientComponent } from './components/engagements-by-client/engagements-by-client.component';
+import { MyFilterPipe } from './my-filter.pipe';
 //import { UpdateEngagementComponent } from './components/update-engagement/update-engagement.component';
 
 
@@ -43,7 +45,8 @@ export const appRoutes: Routes = [
   {path: 'employees', component: EmployeesComponent},
   {path: 'engagements', component: EngagementsComponent},
   {path: 'edit/employee/:id', component: UpdateEmployeeComponent},
-  {path: 'edit/engagement/:id', component: UpdateEngagementComponent}
+  {path: 'edit/engagement/:id', component: UpdateEngagementComponent},
+  {path: 'engagement/client/:id', component: EngagementsByClientComponent}
 ]
 
 @NgModule({
@@ -70,6 +73,8 @@ export const appRoutes: Routes = [
     UpdateEmployeeComponent,
     EditEngagementsComponent,
     UpdateEngagementComponent,
+    EngagementsByClientComponent,
+    MyFilterPipe,
     //UpdateEngagementComponent,
   ],
   imports: [
