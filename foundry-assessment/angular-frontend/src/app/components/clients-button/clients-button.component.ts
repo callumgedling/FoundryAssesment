@@ -18,7 +18,6 @@ export class ClientsButtonComponent implements OnInit {
   
   goToClient(){
     this.router.navigateByUrl(`/`)
-    // this.clientService.editClient(client).subscribe((client) => (this.clients.push(client)));
   }
 
 }

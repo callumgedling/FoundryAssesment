@@ -34,7 +34,6 @@ export class EngagementsByClientComponent implements OnInit {
 
     this.client = this.route.snapshot.params["id"]
     this.filterargs = {client: this.client};
-    console.log(this.filterargs)
     this.engagementService.getEngagements().subscribe((engagements: any[]) => (this.engagements = engagements));
 
     

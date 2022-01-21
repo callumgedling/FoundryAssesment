@@ -22,7 +22,6 @@ export class DeleteClientComponent implements OnInit {
 
   onDelete(client){
     this.onDeleteClient.emit(client);
-    console.log(client)
   }
   
  

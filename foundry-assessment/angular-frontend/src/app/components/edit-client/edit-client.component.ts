@@ -16,7 +16,6 @@ export class EditClientComponent implements OnInit {
   faedit = faEdit;
   id: string;
   name: string;
-  // client: IClient;
   clients: IClient[] = [];
 
   constructor(private route: ActivatedRoute) { }
@@ -41,7 +40,6 @@ export class EditClientComponent implements OnInit {
     this.onEditClient.emit(updatedClient);
 
     alert("Name Updated")
-    console.log(this.name)
     this.name = '';
     
   

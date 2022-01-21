@@ -5,7 +5,11 @@
 <app-add-engagement
 (onAddEngagement)="addEngagement($event)"></app-add-engagement>
 <div class="search-bar">
+<p>Search: </p>
 <input class ="search-bar" type="text" [(ngModel)]="name" (input)="Search()"/>
+<button (click)="nameSearch()">Search by Name</button> 
+<button (click)="idClientSearch()">Search by Client ID</button>
+<button (click)="idEmployeeSearch()">Search by Employee ID</button>
 </div>
 <table>
     <thead>

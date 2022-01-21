@@ -19,8 +19,7 @@ export class EngagementsComponent implements OnInit {
   engagement: IEngagement;
   searchTerm: string;
   name: string;
-  current_date: Date = new Date();
-  test_date : Date = new Date("2019-01-31T00:00:00");
+  searchCondition: string;
 
 
   constructor(private engagementService: EngagementService, private router: Router, private route: ActivatedRoute) { }
@@ -43,9 +42,7 @@ export class EngagementsComponent implements OnInit {
   }
 
   goToEditEngagement(engagement: IEngagement){
-    console.log(engagement);
     this.router.navigateByUrl(`/edit/engagement/${engagement.id}`)
-    console.log(engagement.id);
   }
 
   goToEngagementClient(engagement: IEngagement){
@@ -56,16 +53,55 @@ export class EngagementsComponent implements OnInit {
     this.router.navigateByUrl(`/engagement/employee/${engagement.employee}`)
   }
 
+  
+  idEmployeeSearch(){
+    this.searchCondition = "idemp"
+  }
+
+  nameSearch(){
+    this.searchCondition = "name"
+  }
+
+  idClientSearch(){
+    this.searchCondition = "idclient"
+  }
+
   Search(){
-    if(this.name != ""){
-      this.engagements = this.engagements.filter(res=>{
-        return res.name.toUpperCase().match(this.name.toUpperCase())
-      });
-
+    if(this.searchCondition === "name"){
+      if(this.name != ""){
+        this.engagements = this.engagements.filter(res=>{
+          return res.name.toUpperCase().match(this.name.toUpperCase())
+        });
+  
+      }
+  
+      else if (this.name == ""){
+        this.ngOnInit();
+      }
     }
-
-    else if (this.name == ""){
-      this.ngOnInit();
+    else if (this.searchCondition === "idemp"){
+      if(this.name != ""){
+        this.engagements = this.engagements.filter(res=>{
+          return res.employee.match(this.name)
+        });
+  
+      }
+  
+      else if (this.name == ""){
+        this.ngOnInit();
+      }
+    }
+    else if (this.searchCondition === "idclient"){
+      if(this.name != ""){
+        this.engagements = this.engagements.filter(res=>{
+          return res.client.match(this.name)
+        });
+  
+      }
+  
+      else if (this.name == ""){
+        this.ngOnInit();
+      }
     }
    
   }

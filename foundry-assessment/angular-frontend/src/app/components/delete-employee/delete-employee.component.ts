@@ -21,7 +21,6 @@ export class DeleteEmployeeComponent implements OnInit {
   }
 
   onDelete(employee){
-    console.log(this.employeeService)
     this.onDeleteEmployee.emit(employee);
   }
   

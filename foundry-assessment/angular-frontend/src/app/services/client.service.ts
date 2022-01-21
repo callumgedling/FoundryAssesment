@@ -36,7 +36,6 @@ export class ClientService {
 
   editClient(client: IClient):Observable<IClient>{
     const url = `${this.apiurl}/${client.id}`;
-    console.log(client)
     return this.http.put<IClient>(url, client);
   }
 

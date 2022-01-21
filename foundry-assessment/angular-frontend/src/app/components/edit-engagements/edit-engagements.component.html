@@ -1,4 +1,6 @@
-<button type="button" (click)="engagementEnded()">End Engagement</button>
+<br>
+<button [ngStyle]="{'background-color': 'steelblue'}"(click)="engagementEnded()">End Engagement</button>
+
 <form class="add-form" (ngSubmit)="onSubmit()">
   <div class="form-control">
     <label for="name">Edit Engagement Name</label>
@@ -20,6 +22,5 @@
     </div>
     <input type="submit" value="Edit Engagement" class="btn btn-block" />
   </form> 
-<a routerLink="/">Go Back</a> 
 
 

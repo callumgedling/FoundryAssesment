@@ -29,7 +29,6 @@ export class EngagementsByEmployeeComponent implements OnInit {
   ngOnInit(): void {
     this.employee = this.route.snapshot.params["id"]
     this.filterargs = {employee: this.employee};
-    console.log(this.filterargs)
     this.engagementService.getEngagements().subscribe((engagements: any[]) => (this.engagements = engagements));
 
     

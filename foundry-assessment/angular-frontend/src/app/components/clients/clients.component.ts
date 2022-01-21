@@ -19,6 +19,8 @@ export class ClientsComponent implements OnInit {
   client: IClient;
   searchTerm: string;
   name: string;
+  id: string;
+  searchCondition: string;
 
 
   constructor(private clientService: ClientService, private router: Router, private route: ActivatedRoute) { }
@@ -37,7 +39,6 @@ export class ClientsComponent implements OnInit {
   }
 
   goToEdit(client: IClient){
-    console.log(client);
     this.router.navigateByUrl(`/edit/${client.id}`)
   }
 
@@ -45,17 +46,43 @@ export class ClientsComponent implements OnInit {
     this.router.navigateByUrl(`/`)
   }
 
+  idSearch(){
+    this.searchCondition = "id"
+  }
+
+  nameSearch(){
+    this.searchCondition = "name"
+  }
+
+
   Search(){
-    if(this.name != ""){
-      this.clients = this.clients.filter(res=>{
-        return res.name.toUpperCase().match(this.name.toUpperCase())
-      });
-
+    if(this.searchCondition === "name"){
+      if(this.name != ""){
+        console.log(this.name)
+        this.clients = this.clients.filter(res=>{
+          return res.name.toUpperCase().match(this.name.toUpperCase())
+        });
+  
+      }
+  
+      else if (this.name == ""){
+        this.ngOnInit();
+      }
+    }
+    else if (this.searchCondition === "id"){
+      console.log(this.name)
+      if(this.name != ""){
+        this.clients = this.clients.filter(res=>{
+          return res.id.match(this.name)
+        });
+  
+      }
+  
+      else if (this.name == ""){
+        this.ngOnInit();
+      }
     }
 
-    else if (this.name == ""){
-      this.ngOnInit();
-    }
    
   }
 

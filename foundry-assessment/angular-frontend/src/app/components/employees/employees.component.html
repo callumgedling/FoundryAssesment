@@ -7,7 +7,10 @@
 (onAddEmployee)="addEmployee($event)"></app-add-employee>
 
 <div class="search-bar">
+<p>Search:</p>
 <input class ="search-bar" type="text" [(ngModel)]="name" (input)="Search()"/>
+<button (click)="nameSearch()">Search by Name</button> 
+<button (click)="idSearch()">Search by ID</button>
 </div>
 
 <table>

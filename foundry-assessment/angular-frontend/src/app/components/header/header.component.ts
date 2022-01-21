@@ -17,9 +17,4 @@ export class HeaderComponent implements OnInit {
     this.clientService.getClients().subscribe((clients) => (this.clients = clients));
   }
 
-
-  toggleAddClient(){
-    console.log("toggle")
-  }
-
 }

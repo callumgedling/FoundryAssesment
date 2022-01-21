@@ -19,13 +19,11 @@ export class UpdateEngagementComponent implements OnInit {
 
 
   editEngagement(engagement: IEngagement){
-    console.log("edit engagement in update:" + engagement.id)
     this.EngagementService.editEngagement(engagement).subscribe((engagement) => this.engagements.push(engagement)),
     err => console.log('HTTP Error', err);
   }
 
   endEngagement(engagement: IEngagement){
-    console.log("ENd engagement:" + engagement.id)
     this.EngagementService.endEngagement(engagement).subscribe((engagement) => this.engagements.push(engagement)),
     err => console.log('HTTP Error', err);
   }

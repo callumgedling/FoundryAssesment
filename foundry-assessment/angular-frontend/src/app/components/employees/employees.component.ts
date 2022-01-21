@@ -18,6 +18,8 @@ export class EmployeesComponent implements OnInit {
   employee: IEmployee;
   searchTerm: string;
   name: string;
+  searchCondition: string;
+
 
 
   constructor(private employeeService: EmployeeService, private router: Router, private route: ActivatedRoute) { }
@@ -37,24 +39,50 @@ export class EmployeesComponent implements OnInit {
 
   
   goToEdit(employee: IEmployee){
-    console.log(employee);
     this.router.navigateByUrl(`/edit/employee/${employee.id}`)
   }
 
+  idSearch(){
+    this.searchCondition = "id"
+  }
+
+  nameSearch(){
+    this.searchCondition = "name"
+  }
+
+
   Search(){
-    if(this.name != ""){
-      this.employees = this.employees.filter(res=>{
-        return res.name.toUpperCase().match(this.name.toUpperCase())
-      });
-
+    if(this.searchCondition === "name"){
+      if(this.name != ""){
+        console.log(this.name)
+        this.employees = this.employees.filter(res=>{
+          return res.name.toUpperCase().match(this.name.toUpperCase())
+        });
+  
+      }
+  
+      else if (this.name == ""){
+        this.ngOnInit();
+      }
     }
-
-    else if (this.name == ""){
-      this.ngOnInit();
+    else if (this.searchCondition === "id"){
+      console.log(this.name)
+      if(this.name != ""){
+        this.employees = this.employees.filter(res=>{
+          return res.id.match(this.name)
+        });
+  
+      }
+  
+      else if (this.name == ""){
+        this.ngOnInit();
+      }
     }
    
   }
 
 }
+
+
 
 

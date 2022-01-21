@@ -39,7 +39,6 @@ export class EditEmployeeComponent implements OnInit {
     this.onEditEmployee.emit(updatedEmployee);
 
     alert("Name Updated")
-    console.log(this.name)
     this.name = '';
 
   }

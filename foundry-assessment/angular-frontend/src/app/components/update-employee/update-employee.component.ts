@@ -21,8 +21,6 @@ export class UpdateEmployeeComponent implements OnInit {
   editEmployee(employee: IEmployee){
     this.employeeService.editEmployee(employee).subscribe((employee) => this.employees.push(employee)),
     err => console.log('HTTP Error', err);
-
- 
 }
 
 }

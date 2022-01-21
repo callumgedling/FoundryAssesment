@@ -33,11 +33,13 @@ export class EditEngagementsComponent implements OnInit {
     this.employee = this.route.snapshot.params['employee']
     this.started = this.route.snapshot.params['started']
     this.description = this.route.snapshot.params['description']
-
-    console.log("in edit engagemnets fr: " + this.client)
   }
 
   onSubmit(){
+    if (!this.name){
+      alert("Please add a name")
+      return;
+    }
     const updatedEngagement = {
       id: this.id,
       name: this.name,
@@ -48,7 +50,7 @@ export class EditEngagementsComponent implements OnInit {
       description: this.description,
     };
     this.onEditEngagement.emit(updatedEngagement);
-    alert("End Time Updated")
+    alert("Engagement Edited")
   }
 
   engagementEnded(){
@@ -63,6 +65,7 @@ export class EditEngagementsComponent implements OnInit {
     };
 
     this.onEndedEngagement.emit(endedEngagement)
+    alert("Engagement End Time Added")
     
 
   }

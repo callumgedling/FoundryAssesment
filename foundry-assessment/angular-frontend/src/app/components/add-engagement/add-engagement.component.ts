@@ -34,6 +34,14 @@ export class AddEngagementComponent implements OnInit {
       alert("Please add a name")
       return;
     }
+    else if (!this.employee){
+      alert("Please add an employee ID")
+      return;
+    }
+    else if (!this.client){
+      alert("Please add a client ID")
+      return;
+    }
 
     const newEngagement = {
       id: this.id,
@@ -47,8 +55,12 @@ export class AddEngagementComponent implements OnInit {
 
     this.onAddEngagement.emit(newEngagement);
 
-    // this.id = '';
-    // this.name = '';
+    this.name = '';
+    this.client = '';
+    this.description = '';
+    this.employee = '';
+    alert("Engagement Added")
+
   }
 
 }

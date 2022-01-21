@@ -35,7 +35,6 @@ export class EmployeeService {
 
   editEmployee(emplpoyee: IEmployee):Observable<IEmployee>{
     const url = `${this.apiurl}/${emplpoyee.id}`;
-    console.log(emplpoyee)
     return this.http.put<IEmployee>(url, emplpoyee);
   }
 

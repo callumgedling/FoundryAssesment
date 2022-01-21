@@ -30,13 +30,11 @@ export class EngagementService {
 
   editEngagement(engagement: IEngagement):Observable<IEngagement>{
     const url = `${this.apiurl}/${engagement.id}/`;
-    console.log(engagement.ended)
     return this.http.put<IEngagement>(url, engagement);
   }
 
   endEngagement(engagement: IEngagement):Observable<IEngagement>{
     const url = `${this.apiurl}/${engagement.id}/end`;
-    console.log(engagement.ended)
     return this.http.put<IEngagement>(url, engagement);
   }
 
