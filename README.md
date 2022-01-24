@@ -1,7 +1,7 @@
 # Callum Gedling Foundry Assessment Write Up 
 
 
-Upon opening the web app the user is taken to the clients page. On this page the user can do a number of things. They are able to add a new client by typing a name into the textbox labelled “Add A Client Name” and then pressing save client. 
+Upon opening the web app the user is taken to the clients page. On this page the user can do a number of things. They are able to add a new client by pressing the "add" button in the top right of the page. This will reveal a text box, in which the user can type a name. The user then has to press save client to update the database and see the changes. 
 This will immediately add a new client to the backend, with a randomly generated ID. 
 This new client will also immediately appear in the table of clients, which can be seen below the add client text box. 
 If the user attempts to press the save client button without entering a name, an alert will appear asking them to enter a name and nothing will be submitted to the database. 
