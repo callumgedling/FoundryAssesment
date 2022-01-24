@@ -4,6 +4,8 @@ import { IEmployee } from '../../employee';
 import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons';
 import  { Router, ActivatedRoute } from '@angular/router';
 import { Params } from '@angular/router';
+import { UiService } from 'src/app/services/ui.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-employees',
@@ -12,6 +14,8 @@ import { Params } from '@angular/router';
 })
 export class EmployeesComponent implements OnInit {
 
+  showAddEmployee: boolean = false;
+  subscription: Subscription;
   employees: IEmployee[] = [];
   faTimes = faTimes;
   faEdit = faEdit;
@@ -22,7 +26,9 @@ export class EmployeesComponent implements OnInit {
 
 
 
-  constructor(private employeeService: EmployeeService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private employeeService: EmployeeService, private router: Router, private uiService: UiService) {
+    this.subscription = this.uiService.onToggle().subscribe((value => this.showAddEmployee = value));
+   }
 
   ngOnInit(): void {
     this.employeeService.getEmployees().subscribe((employees: any[]) => (this.employees = employees));
@@ -46,6 +52,10 @@ export class EmployeesComponent implements OnInit {
     this.searchCondition = "id"
   }
 
+  toggleAddEmployee(){
+    this.uiService.toggleAddEmployee();
+  }
+
   nameSearch(){
     this.searchCondition = "name"
   }
@@ -54,7 +64,6 @@ export class EmployeesComponent implements OnInit {
   Search(){
     if(this.searchCondition === "name"){
       if(this.name != ""){
-        console.log(this.name)
         this.employees = this.employees.filter(res=>{
           return res.name.toUpperCase().match(this.name.toUpperCase())
         });
@@ -66,7 +75,6 @@ export class EmployeesComponent implements OnInit {
       }
     }
     else if (this.searchCondition === "id"){
-      console.log(this.name)
       if(this.name != ""){
         this.employees = this.employees.filter(res=>{
           return res.id.match(this.name)

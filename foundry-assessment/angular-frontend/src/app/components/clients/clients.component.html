@@ -1,4 +1,9 @@
 <h2>Client Page</h2>
+<app-button 
+color="{{showAddClient ? 'red' : 'green'}}"
+text="{{showAddClient ? 'Close' : 'Add'}}"
+(btnClick)="toggleAddClient()">
+</app-button>
 <app-clients-button></app-clients-button>
 <app-employees-button></app-employees-button>
 <app-engagements-button></app-engagements-button>

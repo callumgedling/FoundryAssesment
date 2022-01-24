@@ -4,6 +4,8 @@ import { IClient } from '../../client';
 import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons';
 import  { Router, ActivatedRoute } from '@angular/router';
 import { Params } from '@angular/router';
+import { UiService } from '../../services/ui.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-clients',
@@ -13,6 +15,8 @@ import { Params } from '@angular/router';
 
 export class ClientsComponent implements OnInit {
 
+  showAddClient: boolean = false;
+  subscription: Subscription;
   clients: IClient[] = [];
   faTimes = faTimes;
   faEdit = faEdit;
@@ -23,7 +27,9 @@ export class ClientsComponent implements OnInit {
   searchCondition: string;
 
 
-  constructor(private clientService: ClientService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private clientService: ClientService, private router: Router, private uiService: UiService) {
+    this.subscription = this.uiService.onToggle().subscribe((value => this.showAddClient = value));
+   }
 
   ngOnInit(): void {
     this.clientService.getClients().subscribe((clients: any[]) => (this.clients = clients));
@@ -54,11 +60,15 @@ export class ClientsComponent implements OnInit {
     this.searchCondition = "name"
   }
 
+  toggleAddClient(){
+    this.uiService.toggleAddClient();
+  }
+
 
   Search(){
     if(this.searchCondition === "name"){
       if(this.name != ""){
-        console.log(this.name)
+
         this.clients = this.clients.filter(res=>{
           return res.name.toUpperCase().match(this.name.toUpperCase())
         });
@@ -70,7 +80,6 @@ export class ClientsComponent implements OnInit {
       }
     }
     else if (this.searchCondition === "id"){
-      console.log(this.name)
       if(this.name != ""){
         this.clients = this.clients.filter(res=>{
           return res.id.match(this.name)

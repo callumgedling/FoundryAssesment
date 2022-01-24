@@ -20,6 +20,7 @@ export class DeleteClientComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Upon presing the "X" icon, delete the respective row of information
   onDelete(client){
     this.onDeleteClient.emit(client);
   }

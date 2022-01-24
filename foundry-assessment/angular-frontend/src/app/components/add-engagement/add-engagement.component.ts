@@ -19,16 +19,19 @@ export class AddEngagementComponent implements OnInit {
   ended: Date;
   description: string;
   subscription: Subscription;
+  showAddEngagement: boolean;
   
 
 
   constructor(private uiService: UiService) {
+    this.subscription = this.uiService.onToggle().subscribe((value => this.showAddEngagement = value));
    
    }
 
   ngOnInit(): void {
   }
 
+  //When the submit button is pressed check to see if any field is empty, if not post information to backend
   onSubmit(){
     if (!this.name){
       alert("Please add a name")

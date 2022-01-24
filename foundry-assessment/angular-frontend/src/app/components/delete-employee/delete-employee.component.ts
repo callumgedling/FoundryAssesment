@@ -20,6 +20,7 @@ export class DeleteEmployeeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Upon presing the "X" icon, delete the respective row of information
   onDelete(employee){
     this.onDeleteEmployee.emit(employee);
   }

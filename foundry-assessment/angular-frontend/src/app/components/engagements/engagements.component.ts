@@ -4,6 +4,8 @@ import { IEngagement } from '../../engagement';
 import { faTimes, faEdit, faStop } from '@fortawesome/free-solid-svg-icons';
 import  { Router, ActivatedRoute } from '@angular/router';
 import { Params } from '@angular/router';
+import { UiService } from 'src/app/services/ui.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-engagements',
@@ -12,6 +14,7 @@ import { Params } from '@angular/router';
 })
 export class EngagementsComponent implements OnInit {
 
+  showAddEngagement: boolean = false;
   engagements: IEngagement[] = [];
   faTimes = faTimes;
   faEdit = faEdit;
@@ -20,9 +23,12 @@ export class EngagementsComponent implements OnInit {
   searchTerm: string;
   name: string;
   searchCondition: string;
+  subscription: Subscription;
 
 
-  constructor(private engagementService: EngagementService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private engagementService: EngagementService, private router: Router, private uiService: UiService) {
+    this.subscription = this.uiService.onToggle().subscribe((value => this.showAddEngagement = value));
+   }
 
   ngOnInit(): void {
     this.engagementService.getEngagements().subscribe((engagements: any[]) => (this.engagements = engagements));
@@ -53,6 +59,10 @@ export class EngagementsComponent implements OnInit {
     this.router.navigateByUrl(`/engagement/employee/${engagement.employee}`)
   }
 
+
+  toggleAddEngagement(){
+    this.uiService.toggleAddEngagement();
+  }
   
   idEmployeeSearch(){
     this.searchCondition = "idemp"

@@ -1,4 +1,9 @@
 <h2>Employee Page</h2>
+<app-button 
+color="{{showAddEmployee ? 'red' : 'green'}}"
+text="{{showAddEmployee ? 'Close' : 'Add'}}"
+(btnClick)="toggleAddEmployee()">
+</app-button>
 <app-clients-button></app-clients-button>
 <app-employees-button></app-employees-button>
 <app-engagements-button></app-engagements-button>

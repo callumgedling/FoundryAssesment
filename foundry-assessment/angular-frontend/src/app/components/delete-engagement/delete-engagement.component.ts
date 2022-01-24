@@ -19,6 +19,7 @@ export class DeleteEngagementComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Upon presing the "X" icon, delete the respective row of information
   onDelete(engagement){
     this.onDeleteEngagement.emit(engagement);
   }
