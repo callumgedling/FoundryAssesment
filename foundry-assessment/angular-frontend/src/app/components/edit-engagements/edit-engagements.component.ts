@@ -53,6 +53,7 @@ export class EditEngagementsComponent implements OnInit {
     alert("Engagement Edited")
   }
 
+  //End engagement
   engagementEnded(){
     const endedEngagement = {
       id: this.id,

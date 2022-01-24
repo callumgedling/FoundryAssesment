@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { UiService } from '../../services/ui.service';
 import {IEngagement} from '../../engagement';
+import { EngagementService } from 'src/app/services/engagement.service';
 
 @Component({
   selector: 'app-add-engagement',
@@ -10,7 +11,8 @@ import {IEngagement} from '../../engagement';
 })
 export class AddEngagementComponent implements OnInit {
 
-  @Output() onAddEngagement: EventEmitter<IEngagement> = new EventEmitter()
+  @Output() onAddEngagement: EventEmitter<IEngagement> = new EventEmitter();
+  engagements: IEngagement[] = [];
   id: string;
   name: string;
   client: string;

@@ -78,6 +78,7 @@ body {
   padding: 30px;
   border-radius: 5px;
 }
+
 .btn {
   display: inline-block;
   background:steelblue;
@@ -221,9 +222,6 @@ td {
 }
 
 
-.egnagement-end-button{
-  color:rgb(190, 190, 190)
-}
 
 
 

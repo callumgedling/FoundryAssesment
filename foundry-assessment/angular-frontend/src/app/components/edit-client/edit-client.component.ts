@@ -25,6 +25,7 @@ export class EditClientComponent implements OnInit {
 
   }
 
+  //upon editing the client, check to ensure the name field is filled, if so peform PUT on respective client to update name
   onSubmit(){
      if(!this.name){
       alert("Please add a name")

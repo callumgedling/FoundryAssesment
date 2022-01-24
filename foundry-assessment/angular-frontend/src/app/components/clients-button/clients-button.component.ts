@@ -17,7 +17,7 @@ export class ClientsButtonComponent implements OnInit {
 
   
   goToClient(){
-    this.router.navigateByUrl(`/`)
+    this.router.navigateByUrl(`/clients`)
   }
 
 }

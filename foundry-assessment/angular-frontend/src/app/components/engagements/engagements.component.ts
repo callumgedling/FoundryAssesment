@@ -68,6 +68,10 @@ export class EngagementsComponent implements OnInit {
     this.searchCondition = "idemp"
   }
 
+  idEngagementSearch(){
+    this.searchCondition = "idengagement"
+  }
+
   nameSearch(){
     this.searchCondition = "name"
   }
@@ -105,6 +109,19 @@ export class EngagementsComponent implements OnInit {
       if(this.name != ""){
         this.engagements = this.engagements.filter(res=>{
           return res.client.match(this.name)
+        });
+  
+      }
+  
+      else if (this.name == ""){
+        this.ngOnInit();
+      }
+      
+    }
+    else if (this.searchCondition === "idengagement"){
+      if(this.name != ""){
+        this.engagements = this.engagements.filter(res=>{
+          return res.id.match(this.name)
         });
   
       }

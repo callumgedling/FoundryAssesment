@@ -13,12 +13,14 @@ text="{{showAddEngagement ? 'Close' : 'Add'}}"
 <p>Search: </p>
 <input class ="search-bar" type="text" [(ngModel)]="name" (input)="Search()"/>
 <button (click)="nameSearch()">Search by Name</button> 
+<button (click)="idEngagementSearch()">Search by Engagement ID</button>
 <button (click)="idClientSearch()">Search by Client ID</button>
 <button (click)="idEmployeeSearch()">Search by Employee ID</button>
 </div>
 <table>
     <thead>
         <tr>
+            <th scope="col">Engagement ID</th>
             <th scope="col">Engagement Name</th>
             <th scope="col">Engagement Description</th>
             <th scope="col">Client</th>
@@ -31,6 +33,7 @@ text="{{showAddEngagement ? 'Close' : 'Add'}}"
     </thead>
     <tbody>
         <tr *ngFor = "let engagement of engagements" [ngStyle]="{'background-color': engagement.ended != null ? 'red' : 'green' }">
+            <th scope="row">{{engagement.id}}</th>
             <th scope="row">{{engagement.name}}</th>
             <td>{{engagement.description}}</td>
             <td (click)="goToEngagementClient(engagement)">{{engagement.client}}</td>

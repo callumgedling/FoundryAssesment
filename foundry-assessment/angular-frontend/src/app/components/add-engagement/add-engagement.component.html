@@ -44,6 +44,10 @@
         />
     </div>
 
+    <select [(ngModel)]="employee">
+      <option *ngFor="let engagement of engagements" [ngValue]="engagement">{{engagement.employee}}</option>
+    </select>
+
     <input type="submit" value="Save Engagement" class="btn btn-block" />
   </form>
   
